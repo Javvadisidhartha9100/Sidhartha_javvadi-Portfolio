@@ -1,4 +1,6 @@
-/*GENERAL*/
+/* ========================================
+   GENERAL
+   ======================================== */
 
 * {
     box-sizing: border-box;
@@ -10,7 +12,7 @@ html {
 
 body {
     margin: 0;
-    padding: 0;
+    padding: 72px 0 0 0;
 
     font-family: Arial, Helvetica, sans-serif;
 
@@ -36,18 +38,32 @@ body {
     clear: both;
 }
 
+/* Keep section headings visible below fixed header */
+section {
+    scroll-margin-top: 85px;
+}
 
 
-/*HEADER*/
+/* ========================================
+   HEADER
+   ======================================== */
 
 header {
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
     height: 72px;
 
     background-color: #ffffff;
 
     border-bottom: 1px solid #dbe4ef;
 
-    box-shadow: 0 2px 10px rgba(15, 23, 42, 0.05);
+    box-shadow: 0 3px 15px rgba(15, 23, 42, 0.10);
+
+    z-index: 1000;
 }
 
 .brand {
@@ -162,8 +178,9 @@ nav .resume:hover {
 }
 
 
-
-/*HERO*/
+/* ========================================
+   HERO
+   ======================================== */
 
 .hero {
     position: relative;
@@ -173,27 +190,23 @@ nav .resume:hover {
     padding: 45px 0;
 
     background:
-
         radial-gradient(
             circle at 85% 20%,
             rgba(20, 184, 166, 0.18),
             transparent 190px
         ),
-
         radial-gradient(
             circle at 10% 90%,
             rgba(37, 99, 235, 0.15),
             transparent 220px
         ),
-
         linear-gradient(
             135deg,
             #eff6ff,
             #ffffff
         );
 
-    border-bottom:
-        1px solid #dbeafe;
+    border-bottom: 1px solid #dbeafe;
 }
 
 .hero::after {
@@ -254,7 +267,6 @@ nav .resume:hover {
     margin: 0 0 12px;
 
     font-size: 17px;
-
     font-weight: normal;
 
     color: #334155;
@@ -269,8 +281,9 @@ nav .resume:hover {
 }
 
 
-
-/*PROFILE IMAGE*/
+/* ========================================
+   PROFILE IMAGE
+   ======================================== */
 
 .hero-image {
     float: right;
@@ -312,8 +325,9 @@ nav .resume:hover {
 }
 
 
-
-/*BUTTONS*/
+/* ========================================
+   BUTTONS
+   ======================================== */
 
 .button {
     display: inline-block;
@@ -359,8 +373,7 @@ nav .resume:hover {
 
     color: #2563eb;
 
-    border:
-        1px solid #2563eb;
+    border: 1px solid #2563eb;
 }
 
 .white-button:hover {
@@ -372,8 +385,9 @@ nav .resume:hover {
 }
 
 
-
-/*SECTIONS*/
+/* ========================================
+   SECTIONS
+   ======================================== */
 
 .section {
     padding: 30px 0;
@@ -433,8 +447,9 @@ nav .resume:hover {
 }
 
 
-
-/*ABOUT*/
+/* ========================================
+   ABOUT
+   ======================================== */
 
 .about-image {
     float: left;
@@ -507,13 +522,13 @@ nav .resume:hover {
     border-radius: 16px;
 
     font-size: 11px;
-
     font-weight: bold;
 }
 
 
-
-/*SKILLS*/
+/* ========================================
+   SKILLS
+   ======================================== */
 
 .skill-card {
     float: left;
@@ -527,8 +542,7 @@ nav .resume:hover {
 
     background-color: white;
 
-    border:
-        1px solid #dbe3ec;
+    border: 1px solid #dbe3ec;
 
     border-radius: 11px;
 
@@ -554,23 +568,19 @@ nav .resume:hover {
 }
 
 .skill-blue {
-    border-top:
-        5px solid #2563eb;
+    border-top: 5px solid #2563eb;
 }
 
 .skill-teal {
-    border-top:
-        5px solid #14b8a6;
+    border-top: 5px solid #14b8a6;
 }
 
 .skill-purple {
-    border-top:
-        5px solid #8b5cf6;
+    border-top: 5px solid #8b5cf6;
 }
 
 .skill-orange {
-    border-top:
-        5px solid #f59e0b;
+    border-top: 5px solid #f59e0b;
 }
 
 .skill-icon {
@@ -614,8 +624,9 @@ nav .resume:hover {
 }
 
 
-
-/*EXPERIENCE*/
+/* ========================================
+   EXPERIENCE
+   ======================================== */
 
 .experience-box {
     position: relative;
@@ -631,11 +642,9 @@ nav .resume:hover {
         #f8fbff
     );
 
-    border:
-        1px solid #dbe3ec;
+    border: 1px solid #dbe3ec;
 
-    border-left:
-        5px solid #2563eb;
+    border-left: 5px solid #2563eb;
 
     border-radius: 10px;
 
@@ -709,8 +718,9 @@ nav .resume:hover {
 }
 
 
-
-/*PROJECTS*/
+/* ========================================
+   PROJECTS
+   ======================================== */
 
 .project-card {
     float: left;
@@ -725,8 +735,7 @@ nav .resume:hover {
 
     background-color: white;
 
-    border:
-        1px solid #dbe3ec;
+    border: 1px solid #dbe3ec;
 
     border-radius: 12px;
 
@@ -842,8 +851,9 @@ nav .resume:hover {
 }
 
 
-
-/*EDUCATION*/
+/* ========================================
+   EDUCATION
+   ======================================== */
 
 .education-box {
     position: relative;
@@ -859,11 +869,9 @@ nav .resume:hover {
         #f0fdfa
     );
 
-    border:
-        1px solid #dbe3ec;
+    border: 1px solid #dbe3ec;
 
-    border-left:
-        5px solid #14b8a6;
+    border-left: 5px solid #14b8a6;
 
     border-radius: 10px;
 
@@ -908,8 +916,9 @@ nav .resume:hover {
 }
 
 
-
-/*CERTIFICATIONS*/
+/* ========================================
+   CERTIFICATIONS
+   ======================================== */
 
 .certificate {
     float: left;
@@ -924,8 +933,7 @@ nav .resume:hover {
 
     background-color: white;
 
-    border:
-        1px solid #dbe3ec;
+    border: 1px solid #dbe3ec;
 
     border-radius: 11px;
 
@@ -1004,8 +1012,9 @@ nav .resume:hover {
 }
 
 
-
-/*BLOG*/
+/* ========================================
+   BLOG
+   ======================================== */
 
 .blog-card {
     position: relative;
@@ -1022,8 +1031,7 @@ nav .resume:hover {
 
     background-color: white;
 
-    border:
-        1px solid #dbe3ec;
+    border: 1px solid #dbe3ec;
 
     border-radius: 11px;
 
@@ -1099,21 +1107,17 @@ nav .resume:hover {
 }
 
 
-
 /* ========================================
    CONTACT
    ======================================== */
 
 .contact-section {
-
     background:
-
         radial-gradient(
             circle at 90% 20%,
             rgba(20, 184, 166, 0.10),
             transparent 220px
         ),
-
         linear-gradient(
             135deg,
             #eff6ff,
@@ -1132,8 +1136,7 @@ form {
 
     background-color: white;
 
-    border:
-        1px solid #dbe3ec;
+    border: 1px solid #dbe3ec;
 
     border-radius: 12px;
 
@@ -1173,8 +1176,7 @@ textarea {
 
     padding: 10px 12px;
 
-    border:
-        1px solid #cbd5e1;
+    border: 1px solid #cbd5e1;
 
     border-radius: 7px;
 
@@ -1247,7 +1249,6 @@ button:hover {
 }
 
 
-
 /* ========================================
    FOOTER
    ======================================== */
@@ -1288,9 +1289,12 @@ footer p {
     font-size: 12px;
 
     transition:
-        color 0.25s;
+        color 0.25s,
+        transform 0.25s;
 }
 
 .social a:hover {
     color: #2dd4bf;
+
+    transform: translateY(-2px);
 }
