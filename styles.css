@@ -1,6 +1,6 @@
 /* ========================================
    GENERAL
-   ======================================== */
+======================================== */
 
 * {
     box-sizing: border-box;
@@ -12,19 +12,23 @@ html {
 
 body {
     margin: 0;
+
     padding: 72px 0 0 0;
 
     font-family: Arial, Helvetica, sans-serif;
 
     background-color: #f8fafc;
+
     color: #0f172a;
 
     font-size: 14px;
+
     line-height: 1.5;
 }
 
 .container {
     width: 1160px;
+
     margin: 0 auto;
 }
 
@@ -34,34 +38,39 @@ body {
 
 .clearfix::after {
     content: "";
+
     display: block;
+
     clear: both;
 }
 
-/* Keep section headings visible below fixed header */
 section {
     scroll-margin-top: 85px;
 }
 
 
+
 /* ========================================
-   HEADER
-   ======================================== */
+   FIXED HEADER
+======================================== */
 
 header {
     position: fixed;
 
     top: 0;
+
     left: 0;
 
     width: 100%;
+
     height: 72px;
 
     background-color: #ffffff;
 
     border-bottom: 1px solid #dbe4ef;
 
-    box-shadow: 0 3px 15px rgba(15, 23, 42, 0.10);
+    box-shadow:
+        0 3px 15px rgba(15, 23, 42, 0.10);
 
     z-index: 1000;
 }
@@ -70,6 +79,7 @@ header {
     float: left;
 
     height: 72px;
+
     line-height: 72px;
 }
 
@@ -77,17 +87,19 @@ header {
     display: inline-block;
 
     width: 42px;
+
     height: 42px;
 
     line-height: 42px;
 
     margin-right: 10px;
 
-    background: linear-gradient(
-        135deg,
-        #2563eb,
-        #14b8a6
-    );
+    background:
+        linear-gradient(
+            135deg,
+            #2563eb,
+            #14b8a6
+        );
 
     color: white;
 
@@ -96,6 +108,7 @@ header {
     border-radius: 10px;
 
     font-size: 16px;
+
     font-weight: bold;
 
     vertical-align: middle;
@@ -110,6 +123,7 @@ header {
     vertical-align: middle;
 
     font-size: 18px;
+
     font-weight: bold;
 
     color: #0f172a;
@@ -119,6 +133,7 @@ nav {
     float: right;
 
     height: 72px;
+
     line-height: 72px;
 
     white-space: nowrap;
@@ -153,11 +168,12 @@ nav .resume {
 
     padding: 0 17px;
 
-    background: linear-gradient(
-        135deg,
-        #2563eb,
-        #14b8a6
-    );
+    background:
+        linear-gradient(
+            135deg,
+            #2563eb,
+            #14b8a6
+        );
 
     color: white;
 
@@ -170,17 +186,19 @@ nav .resume {
 nav .resume:hover {
     color: white;
 
-    background: linear-gradient(
-        135deg,
-        #1d4ed8,
-        #0d9488
-    );
+    background:
+        linear-gradient(
+            135deg,
+            #1d4ed8,
+            #0d9488
+        );
 }
+
 
 
 /* ========================================
    HERO
-   ======================================== */
+======================================== */
 
 .hero {
     position: relative;
@@ -195,18 +213,21 @@ nav .resume:hover {
             rgba(20, 184, 166, 0.18),
             transparent 190px
         ),
+
         radial-gradient(
             circle at 10% 90%,
             rgba(37, 99, 235, 0.15),
             transparent 220px
         ),
+
         linear-gradient(
             135deg,
             #eff6ff,
             #ffffff
         );
 
-    border-bottom: 1px solid #dbeafe;
+    border-bottom:
+        1px solid #dbeafe;
 }
 
 .hero::after {
@@ -215,9 +236,11 @@ nav .resume:hover {
     position: absolute;
 
     right: -50px;
+
     bottom: -90px;
 
     width: 250px;
+
     height: 250px;
 
     border-radius: 50%;
@@ -252,6 +275,7 @@ nav .resume:hover {
     border-radius: 20px;
 
     font-size: 12px;
+
     font-weight: bold;
 }
 
@@ -267,6 +291,7 @@ nav .resume:hover {
     margin: 0 0 12px;
 
     font-size: 17px;
+
     font-weight: normal;
 
     color: #334155;
@@ -281,9 +306,10 @@ nav .resume:hover {
 }
 
 
+
 /* ========================================
    PROFILE IMAGE
-   ======================================== */
+======================================== */
 
 .hero-image {
     float: right;
@@ -299,6 +325,7 @@ nav .resume:hover {
     display: block;
 
     width: 360px;
+
     height: 250px;
 
     object-fit: cover;
@@ -325,9 +352,10 @@ nav .resume:hover {
 }
 
 
+
 /* ========================================
    BUTTONS
-   ======================================== */
+======================================== */
 
 .button {
     display: inline-block;
@@ -344,16 +372,16 @@ nav .resume:hover {
 
     transition:
         transform 0.25s,
-        box-shadow 0.25s,
-        background-color 0.25s;
+        box-shadow 0.25s;
 }
 
 .blue-button {
-    background: linear-gradient(
-        135deg,
-        #2563eb,
-        #14b8a6
-    );
+    background:
+        linear-gradient(
+            135deg,
+            #2563eb,
+            #14b8a6
+        );
 
     color: white;
 
@@ -385,9 +413,10 @@ nav .resume:hover {
 }
 
 
+
 /* ========================================
    SECTIONS
-   ======================================== */
+======================================== */
 
 .section {
     padding: 30px 0;
@@ -399,19 +428,21 @@ nav .resume:hover {
 }
 
 .light-section {
-    background: linear-gradient(
-        135deg,
-        #f8fafc,
-        #f1f5f9
-    );
+    background:
+        linear-gradient(
+            135deg,
+            #f8fafc,
+            #f1f5f9
+        );
 }
 
 .projects-section {
-    background: linear-gradient(
-        135deg,
-        #f8fbff,
-        #f0fdfa
-    );
+    background:
+        linear-gradient(
+            135deg,
+            #f8fbff,
+            #f0fdfa
+        );
 }
 
 .section-title {
@@ -432,24 +463,28 @@ nav .resume:hover {
     position: absolute;
 
     left: 0;
+
     bottom: 0;
 
     width: 58px;
+
     height: 4px;
 
     border-radius: 10px;
 
-    background: linear-gradient(
-        90deg,
-        #2563eb,
-        #14b8a6
-    );
+    background:
+        linear-gradient(
+            90deg,
+            #2563eb,
+            #14b8a6
+        );
 }
+
 
 
 /* ========================================
    ABOUT
-   ======================================== */
+======================================== */
 
 .about-image {
     float: left;
@@ -461,6 +496,7 @@ nav .resume:hover {
     display: block;
 
     width: 400px;
+
     height: 210px;
 
     object-fit: cover;
@@ -497,8 +533,6 @@ nav .resume:hover {
 .about-text h3 {
     margin: 0 0 10px;
 
-    color: #0f172a;
-
     font-size: 18px;
 }
 
@@ -522,18 +556,21 @@ nav .resume:hover {
     border-radius: 16px;
 
     font-size: 11px;
+
     font-weight: bold;
 }
 
 
+
 /* ========================================
    SKILLS
-   ======================================== */
+======================================== */
 
 .skill-card {
     float: left;
 
     width: 272px;
+
     height: 165px;
 
     margin-left: 24px;
@@ -568,19 +605,23 @@ nav .resume:hover {
 }
 
 .skill-blue {
-    border-top: 5px solid #2563eb;
+    border-top:
+        5px solid #2563eb;
 }
 
 .skill-teal {
-    border-top: 5px solid #14b8a6;
+    border-top:
+        5px solid #14b8a6;
 }
 
 .skill-purple {
-    border-top: 5px solid #8b5cf6;
+    border-top:
+        5px solid #8b5cf6;
 }
 
 .skill-orange {
-    border-top: 5px solid #f59e0b;
+    border-top:
+        5px solid #f59e0b;
 }
 
 .skill-icon {
@@ -624,9 +665,10 @@ nav .resume:hover {
 }
 
 
+
 /* ========================================
    EXPERIENCE
-   ======================================== */
+======================================== */
 
 .experience-box {
     position: relative;
@@ -636,15 +678,17 @@ nav .resume:hover {
     padding:
         18px 185px 16px 95px;
 
-    background: linear-gradient(
-        135deg,
-        #ffffff,
-        #f8fbff
-    );
+    background:
+        linear-gradient(
+            135deg,
+            #ffffff,
+            #f8fbff
+        );
 
     border: 1px solid #dbe3ec;
 
-    border-left: 5px solid #2563eb;
+    border-left:
+        5px solid #2563eb;
 
     border-radius: 10px;
 
@@ -656,20 +700,23 @@ nav .resume:hover {
     position: absolute;
 
     left: 22px;
+
     top: 30px;
 
     width: 48px;
+
     height: 48px;
 
     line-height: 48px;
 
     border-radius: 10px;
 
-    background: linear-gradient(
-        135deg,
-        #2563eb,
-        #14b8a6
-    );
+    background:
+        linear-gradient(
+            135deg,
+            #2563eb,
+            #14b8a6
+        );
 
     color: white;
 
@@ -704,6 +751,7 @@ nav .resume:hover {
     position: absolute;
 
     top: 18px;
+
     right: 20px;
 
     padding: 5px 11px;
@@ -718,9 +766,10 @@ nav .resume:hover {
 }
 
 
+
 /* ========================================
    PROJECTS
-   ======================================== */
+======================================== */
 
 .project-card {
     float: left;
@@ -775,33 +824,34 @@ nav .resume:hover {
 }
 
 .project-one {
-    background: linear-gradient(
-        135deg,
-        #2563eb,
-        #60a5fa
-    );
+    background:
+        linear-gradient(
+            135deg,
+            #2563eb,
+            #60a5fa
+        );
 }
 
 .project-two {
-    background: linear-gradient(
-        135deg,
-        #14b8a6,
-        #2dd4bf
-    );
+    background:
+        linear-gradient(
+            135deg,
+            #14b8a6,
+            #2dd4bf
+        );
 }
 
 .project-three {
-    background: linear-gradient(
-        135deg,
-        #8b5cf6,
-        #a78bfa
-    );
+    background:
+        linear-gradient(
+            135deg,
+            #8b5cf6,
+            #a78bfa
+        );
 }
 
 .project-card h3 {
     margin: 11px 0 5px;
-
-    color: #0f172a;
 
     font-size: 16px;
 }
@@ -851,9 +901,10 @@ nav .resume:hover {
 }
 
 
+
 /* ========================================
    EDUCATION
-   ======================================== */
+======================================== */
 
 .education-box {
     position: relative;
@@ -863,15 +914,17 @@ nav .resume:hover {
     padding:
         18px 20px 18px 95px;
 
-    background: linear-gradient(
-        135deg,
-        #ffffff,
-        #f0fdfa
-    );
+    background:
+        linear-gradient(
+            135deg,
+            #ffffff,
+            #f0fdfa
+        );
 
     border: 1px solid #dbe3ec;
 
-    border-left: 5px solid #14b8a6;
+    border-left:
+        5px solid #14b8a6;
 
     border-radius: 10px;
 
@@ -883,18 +936,21 @@ nav .resume:hover {
     position: absolute;
 
     left: 22px;
+
     top: 30px;
 
     width: 50px;
+
     height: 50px;
 
     line-height: 50px;
 
-    background: linear-gradient(
-        135deg,
-        #14b8a6,
-        #2563eb
-    );
+    background:
+        linear-gradient(
+            135deg,
+            #14b8a6,
+            #2563eb
+        );
 
     border-radius: 10px;
 
@@ -916,9 +972,10 @@ nav .resume:hover {
 }
 
 
+
 /* ========================================
    CERTIFICATIONS
-   ======================================== */
+======================================== */
 
 .certificate {
     float: left;
@@ -960,17 +1017,19 @@ nav .resume:hover {
 
 .certificate-icon {
     width: 42px;
+
     height: 42px;
 
     line-height: 42px;
 
     margin: 0 auto 5px;
 
-    background: linear-gradient(
-        135deg,
-        #2563eb,
-        #60a5fa
-    );
+    background:
+        linear-gradient(
+            135deg,
+            #2563eb,
+            #60a5fa
+        );
 
     color: white;
 
@@ -982,19 +1041,21 @@ nav .resume:hover {
 }
 
 .cert-teal {
-    background: linear-gradient(
-        135deg,
-        #14b8a6,
-        #2dd4bf
-    );
+    background:
+        linear-gradient(
+            135deg,
+            #14b8a6,
+            #2dd4bf
+        );
 }
 
 .cert-purple {
-    background: linear-gradient(
-        135deg,
-        #8b5cf6,
-        #a78bfa
-    );
+    background:
+        linear-gradient(
+            135deg,
+            #8b5cf6,
+            #a78bfa
+        );
 }
 
 .certificate h3 {
@@ -1012,18 +1073,17 @@ nav .resume:hover {
 }
 
 
+
 /* ========================================
    BLOG
-   ======================================== */
+======================================== */
 
 .blog-card {
-    position: relative;
-
     float: left;
 
     width: 373px;
 
-    min-height: 180px;
+    min-height: 205px;
 
     margin-left: 20px;
 
@@ -1048,8 +1108,6 @@ nav .resume:hover {
 }
 
 .blog-card:hover {
-    transform: translateY(-5px);
-
     box-shadow:
         0 12px 25px rgba(15, 23, 42, 0.11);
 }
@@ -1061,11 +1119,12 @@ nav .resume:hover {
 
     margin-bottom: 8px;
 
-    background: linear-gradient(
-        135deg,
-        #2563eb,
-        #14b8a6
-    );
+    background:
+        linear-gradient(
+            135deg,
+            #2563eb,
+            #14b8a6
+        );
 
     color: white;
 
@@ -1079,37 +1138,83 @@ nav .resume:hover {
 .blog-card h3 {
     margin: 0 0 8px;
 
-    color: #0f172a;
-
     font-size: 16px;
 }
 
 .blog-card p {
-    min-height: 55px;
-
-    margin: 0 0 10px;
-
     color: #64748b;
 }
 
-.blog-card a {
-    color: #2563eb;
 
-    text-decoration: none;
+
+/* READ MORE */
+
+.blog-details {
+    margin-top: 15px;
+}
+
+.blog-details summary {
+    display: inline-block;
+
+    color: #2563eb;
 
     font-weight: bold;
 
+    cursor: pointer;
+
     font-size: 13px;
+
+    list-style: none;
 }
 
-.blog-card a:hover {
+.blog-details summary::-webkit-details-marker {
+    display: none;
+}
+
+.blog-details summary:hover {
     color: #14b8a6;
 }
+
+.blog-details[open] summary {
+    margin-bottom: 14px;
+
+    color: #0d9488;
+}
+
+.blog-full {
+    margin-top: 5px;
+
+    padding-top: 13px;
+
+    border-top:
+        1px solid #e2e8f0;
+}
+
+.blog-full h4 {
+    margin:
+        12px 0 5px;
+
+    color: #0f172a;
+
+    font-size: 14px;
+}
+
+.blog-full p {
+    margin:
+        0 0 10px;
+
+    color: #64748b;
+
+    font-size: 13px;
+
+    line-height: 1.6;
+}
+
 
 
 /* ========================================
    CONTACT
-   ======================================== */
+======================================== */
 
 .contact-section {
     background:
@@ -1118,6 +1223,7 @@ nav .resume:hover {
             rgba(20, 184, 166, 0.10),
             transparent 220px
         ),
+
         linear-gradient(
             135deg,
             #eff6ff,
@@ -1126,7 +1232,8 @@ nav .resume:hover {
 }
 
 .contact-intro {
-    margin: -8px 0 17px;
+    margin:
+        -8px 0 17px;
 
     color: #64748b;
 }
@@ -1136,7 +1243,8 @@ form {
 
     background-color: white;
 
-    border: 1px solid #dbe3ec;
+    border:
+        1px solid #dbe3ec;
 
     border-radius: 12px;
 
@@ -1176,7 +1284,8 @@ textarea {
 
     padding: 10px 12px;
 
-    border: 1px solid #cbd5e1;
+    border:
+        1px solid #cbd5e1;
 
     border-radius: 7px;
 
@@ -1215,11 +1324,12 @@ button {
 
     padding: 11px 27px;
 
-    background: linear-gradient(
-        135deg,
-        #2563eb,
-        #14b8a6
-    );
+    background:
+        linear-gradient(
+            135deg,
+            #2563eb,
+            #14b8a6
+        );
 
     color: white;
 
@@ -1249,18 +1359,20 @@ button:hover {
 }
 
 
+
 /* ========================================
    FOOTER
-   ======================================== */
+======================================== */
 
 footer {
     padding: 18px 0;
 
-    background: linear-gradient(
-        135deg,
-        #0f172a,
-        #172554
-    );
+    background:
+        linear-gradient(
+            135deg,
+            #0f172a,
+            #172554
+        );
 
     color: white;
 }
