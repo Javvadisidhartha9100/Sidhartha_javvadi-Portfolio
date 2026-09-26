@@ -1,1241 +1,2004 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=1200">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SIDHARTHA JAVVADI | Portfolio</title>
 
-    <link rel="stylesheet" href="styles.css">
-</head>
+    <style>
+        /* ========================================
+           GENERAL
+        ======================================== */
 
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            padding: 72px 0 0;
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #f8fafc;
+            color: #0f172a;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        .container {
+            width: 1160px;
+            margin: 0 auto;
+        }
+
+        section {
+            scroll-margin-top: 85px;
+        }
+
+        /* ========================================
+           FIXED HEADER - CSS GRID
+        ======================================== */
+
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 72px;
+            background-color: #ffffff;
+            border-bottom: 1px solid #dbe4ef;
+            box-shadow: 0 3px 15px rgba(15, 23, 42, 0.10);
+            z-index: 1000;
+        }
+
+        header .container {
+            height: 72px;
+
+            display: grid;
+            grid-template-columns: 300px 1fr;
+            grid-template-rows: 72px;
+            grid-template-areas: "brand menu";
+            align-items: center;
+            grid-gap: 20px;
+        }
+
+        .brand {
+            grid-area: brand;
+
+            display: grid;
+            grid-template-columns: 42px 1fr;
+            grid-template-rows: 42px;
+            grid-template-areas: "logo name";
+            align-items: center;
+            grid-gap: 10px;
+        }
+
+        .logo {
+            grid-area: logo;
+            width: 42px;
+            height: 42px;
+
+            display: grid;
+            place-items: center;
+
+            background: linear-gradient(135deg, #2563eb, #14b8a6);
+            color: white;
+            border-radius: 10px;
+            font-size: 16px;
+            font-weight: bold;
+            box-shadow: 0 5px 12px rgba(37, 99, 235, 0.22);
+        }
+
+        .name {
+            grid-area: name;
+            font-size: 18px;
+            font-weight: bold;
+            color: #0f172a;
+        }
+
+        nav {
+            grid-area: menu;
+
+            display: grid;
+            grid-auto-flow: column;
+            grid-auto-columns: max-content;
+            justify-content: end;
+            align-items: center;
+            grid-gap: 17px;
+        }
+
+        nav a {
+            color: #334155;
+            text-decoration: none;
+            font-size: 13px;
+            transition: color 0.25s, transform 0.25s;
+        }
+
+        nav a:hover {
+            color: #2563eb;
+            transform: translateY(-2px);
+        }
+
+        nav .resume {
+            padding: 9px 17px;
+            background: linear-gradient(135deg, #2563eb, #14b8a6);
+            color: white;
+            border-radius: 7px;
+            box-shadow: 0 5px 12px rgba(37, 99, 235, 0.20);
+        }
+
+        nav .resume:hover {
+            color: white;
+            background: linear-gradient(135deg, #1d4ed8, #0d9488);
+        }
+
+        /* ========================================
+           HERO - CSS GRID
+        ======================================== */
+
+        .hero {
+            position: relative;
+            overflow: hidden;
+            padding: 45px 0;
+            background:
+                radial-gradient(circle at 85% 20%, rgba(20, 184, 166, 0.18), transparent 190px),
+                radial-gradient(circle at 10% 90%, rgba(37, 99, 235, 0.15), transparent 220px),
+                linear-gradient(135deg, #eff6ff, #ffffff);
+            border-bottom: 1px solid #dbeafe;
+        }
+
+        .hero::after {
+            content: "";
+            position: absolute;
+            right: -50px;
+            bottom: -90px;
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            background-color: rgba(139, 92, 246, 0.07);
+        }
+
+        .hero .container {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            grid-template-rows: auto;
+            grid-template-areas: "heroText heroImage";
+            align-items: center;
+            grid-gap: 70px;
+        }
+
+        .hero-left {
+            grid-area: heroText;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-image {
+            grid-area: heroImage;
+            position: relative;
+            z-index: 2;
+        }
+
+        .intro-badge {
+            display: inline-block;
+            margin-bottom: 12px;
+            padding: 5px 12px;
+            background-color: #dbeafe;
+            color: #1d4ed8;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        .hero-left h1 {
+            margin: 0 0 7px;
+            font-size: 34px;
+        }
+
+        .hero-left h2 {
+            margin: 0 0 12px;
+            font-size: 17px;
+            font-weight: normal;
+            color: #334155;
+        }
+
+        .hero-left p {
+            max-width: 620px;
+            margin: 0 0 22px;
+            color: #52657a;
+        }
+
+        .profile-photo {
+            display: block;
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            object-position: center top;
+            border-radius: 18px;
+            border: 4px solid white;
+            box-shadow: 0 12px 30px rgba(15, 23, 42, 0.18);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .profile-photo:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 18px 36px rgba(15, 23, 42, 0.25);
+        }
+
+        .button {
+            display: inline-block;
+            padding: 11px 22px;
+            margin-right: 10px;
+            border-radius: 7px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: transform 0.25s, box-shadow 0.25s;
+        }
+
+        .blue-button {
+            background: linear-gradient(135deg, #2563eb, #14b8a6);
+            color: white;
+            box-shadow: 0 6px 15px rgba(37, 99, 235, 0.22);
+        }
+
+        .blue-button:hover,
+        .white-button:hover {
+            transform: translateY(-3px);
+        }
+
+        .white-button {
+            background-color: white;
+            color: #2563eb;
+            border: 1px solid #2563eb;
+        }
+
+        .white-button:hover {
+            background-color: #2563eb;
+            color: white;
+        }
+
+        /* ========================================
+           COMMON SECTIONS
+        ======================================== */
+
+        .section {
+            padding: 35px 0;
+            background-color: white;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .light-section {
+            background: linear-gradient(135deg, #f8fafc, #f1f5f9);
+        }
+
+        .projects-section {
+            background: linear-gradient(135deg, #f8fbff, #f0fdfa);
+        }
+
+        .section-title {
+            position: relative;
+            margin: 0 0 22px;
+            padding-bottom: 9px;
+            font-size: 22px;
+        }
+
+        .section-title::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 58px;
+            height: 4px;
+            border-radius: 10px;
+            background: linear-gradient(90deg, #2563eb, #14b8a6);
+        }
+
+        /* ========================================
+           ABOUT - CSS GRID
+        ======================================== */
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 400px 1fr;
+            grid-template-rows: auto;
+            grid-template-areas: "aboutImage aboutText";
+            align-items: center;
+            grid-gap: 50px;
+        }
+
+        .about-image {
+            grid-area: aboutImage;
+        }
+
+        .about-text {
+            grid-area: aboutText;
+            padding: 12px 20px;
+        }
+
+        .about-photo {
+            display: block;
+            width: 100%;
+            height: 210px;
+            object-fit: cover;
+            object-position: center;
+            border-radius: 16px;
+            border: 4px solid white;
+            box-shadow: 0 10px 25px rgba(15, 23, 42, 0.13);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .about-photo:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 16px 32px rgba(15, 23, 42, 0.18);
+        }
+
+        .about-text h3 {
+            margin: 0 0 10px;
+            font-size: 18px;
+        }
+
+        .about-text p {
+            margin: 0 0 10px;
+            color: #52657a;
+        }
+
+        .about-tag {
+            display: inline-block;
+            padding: 5px 11px;
+            margin-right: 5px;
+            background-color: #e0f2fe;
+            color: #0369a1;
+            border-radius: 16px;
+            font-size: 11px;
+            font-weight: bold;
+        }
+
+        /* ========================================
+           SKILLS - CSS GRID
+        ======================================== */
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: 165px;
+            grid-template-areas: "cloud programming database tools";
+            grid-gap: 24px;
+        }
+
+        .skill-card {
+            padding: 16px 10px;
+            background-color: white;
+            border: 1px solid #dbe3ec;
+            border-radius: 11px;
+            text-align: center;
+            box-shadow: 0 7px 18px rgba(15, 23, 42, 0.07);
+            transition: transform 0.25s, box-shadow 0.25s;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 12px 26px rgba(15, 23, 42, 0.12);
+        }
+
+        .skill-blue {
+            grid-area: cloud;
+            border-top: 5px solid #2563eb;
+        }
+
+        .skill-teal {
+            grid-area: programming;
+            border-top: 5px solid #14b8a6;
+        }
+
+        .skill-purple {
+            grid-area: database;
+            border-top: 5px solid #8b5cf6;
+        }
+
+        .skill-orange {
+            grid-area: tools;
+            border-top: 5px solid #f59e0b;
+        }
+
+        .skill-icon {
+            height: 38px;
+            line-height: 38px;
+            margin-bottom: 4px;
+            color: #2563eb;
+            font-size: 31px;
+        }
+
+        .skill-teal .skill-icon {
+            color: #14b8a6;
+        }
+
+        .skill-purple .skill-icon {
+            color: #8b5cf6;
+        }
+
+        .skill-orange .skill-icon {
+            color: #f59e0b;
+        }
+
+        .skill-card h3 {
+            margin: 5px 0 3px;
+            font-size: 16px;
+        }
+
+        .skill-card p {
+            margin: 0;
+            color: #64748b;
+            font-size: 13px;
+            line-height: 1.35;
+        }
+
+        /* ========================================
+           EXPERIENCE - CSS GRID
+        ======================================== */
+
+        .experience-box {
+            display: grid;
+            grid-template-columns: 55px 1fr 160px;
+            grid-template-rows: auto;
+            grid-template-areas: "expIcon expContent expDate";
+            align-items: start;
+            grid-gap: 20px;
+
+            padding: 18px 20px;
+            background: linear-gradient(135deg, #ffffff, #f8fbff);
+            border: 1px solid #dbe3ec;
+            border-left: 5px solid #2563eb;
+            border-radius: 10px;
+            box-shadow: 0 7px 18px rgba(15, 23, 42, 0.06);
+        }
+
+        .experience-icon {
+            grid-area: expIcon;
+            width: 48px;
+            height: 48px;
+            display: grid;
+            place-items: center;
+            background: linear-gradient(135deg, #2563eb, #14b8a6);
+            color: white;
+            border-radius: 10px;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .experience-content {
+            grid-area: expContent;
+        }
+
+        .experience-content h3 {
+            margin: 0 0 3px;
+            font-size: 17px;
+        }
+
+        .company {
+            margin: 0 0 5px;
+            color: #0d9488;
+            font-weight: bold;
+        }
+
+        .experience-content ul {
+            margin: 6px 0 0 18px;
+            padding: 0;
+        }
+
+        .date {
+            grid-area: expDate;
+            justify-self: end;
+            margin: 0;
+            padding: 5px 11px;
+            background-color: #dbeafe;
+            color: #1d4ed8;
+            border-radius: 16px;
+            font-size: 12px;
+        }
+
+        /* ========================================
+           PROJECTS - CSS GRID
+        ======================================== */
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: auto;
+            grid-template-areas: "project1 project2 project3";
+            grid-gap: 20px;
+        }
+
+        .project-card {
+            min-height: 335px;
+            padding: 12px;
+            background-color: white;
+            border: 1px solid #dbe3ec;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(15, 23, 42, 0.07);
+            transition: transform 0.25s, box-shadow 0.25s;
+        }
+
+        .project-card:nth-child(1) {
+            grid-area: project1;
+        }
+
+        .project-card:nth-child(2) {
+            grid-area: project2;
+        }
+
+        .project-card:nth-child(3) {
+            grid-area: project3;
+        }
+
+        .project-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 14px 30px rgba(15, 23, 42, 0.13);
+        }
+
+        .project-image {
+            height: 130px;
+            display: grid;
+            place-items: center;
+            border-radius: 9px;
+            color: white;
+            font-size: 32px;
+            font-weight: bold;
+        }
+
+        .project-one {
+            background: linear-gradient(135deg, #2563eb, #60a5fa);
+        }
+
+        .project-two {
+            background: linear-gradient(135deg, #14b8a6, #2dd4bf);
+        }
+
+        .project-three {
+            background: linear-gradient(135deg, #8b5cf6, #a78bfa);
+        }
+
+        .project-card h3 {
+            margin: 11px 0 5px;
+            font-size: 16px;
+        }
+
+        .project-card p {
+            min-height: 57px;
+            margin: 0 0 10px;
+            color: #64748b;
+        }
+
+        .tag {
+            display: inline-block;
+            padding: 4px 10px;
+            margin-right: 4px;
+            background-color: #eff6ff;
+            color: #1d4ed8;
+            border-radius: 14px;
+            font-size: 11px;
+            font-weight: bold;
+        }
+
+        .project-link {
+            display: block;
+            margin-top: 13px;
+            color: #2563eb;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 12px;
+        }
+
+        .project-link:hover {
+            color: #0d9488;
+        }
+
+        /* ========================================
+           EDUCATION - CSS GRID
+        ======================================== */
+
+        .education-box {
+            display: grid;
+            grid-template-columns: 55px 1fr;
+            grid-template-rows: auto;
+            grid-template-areas: "eduIcon eduContent";
+            align-items: start;
+            grid-gap: 20px;
+
+            padding: 18px 20px;
+            background: linear-gradient(135deg, #ffffff, #f0fdfa);
+            border: 1px solid #dbe3ec;
+            border-left: 5px solid #14b8a6;
+            border-radius: 10px;
+            box-shadow: 0 7px 18px rgba(15, 23, 42, 0.06);
+        }
+
+        .education-icon {
+            grid-area: eduIcon;
+            width: 50px;
+            height: 50px;
+            display: grid;
+            place-items: center;
+            background: linear-gradient(135deg, #14b8a6, #2563eb);
+            border-radius: 10px;
+            font-size: 24px;
+        }
+
+        .education-content {
+            grid-area: eduContent;
+        }
+
+        .education-content h3 {
+            margin: 0 0 5px;
+            font-size: 17px;
+        }
+
+        .education-content p {
+            margin: 3px 0;
+            color: #52657a;
+        }
+
+        /* ========================================
+           CERTIFICATIONS - CSS GRID
+        ======================================== */
+
+        .certifications-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: 135px;
+            grid-template-areas: "aws google tableau";
+            grid-gap: 20px;
+        }
+
+        .certificate {
+            padding: 14px 10px;
+            background-color: white;
+            border: 1px solid #dbe3ec;
+            border-radius: 11px;
+            text-align: center;
+            box-shadow: 0 7px 18px rgba(15, 23, 42, 0.06);
+            transition: transform 0.25s, box-shadow 0.25s;
+        }
+
+        .certificate:nth-child(1) {
+            grid-area: aws;
+        }
+
+        .certificate:nth-child(2) {
+            grid-area: google;
+        }
+
+        .certificate:nth-child(3) {
+            grid-area: tableau;
+        }
+
+        .certificate:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 25px rgba(15, 23, 42, 0.11);
+        }
+
+        .certificate-icon {
+            width: 42px;
+            height: 42px;
+            margin: 0 auto 5px;
+            display: grid;
+            place-items: center;
+            background: linear-gradient(135deg, #2563eb, #60a5fa);
+            color: white;
+            border-radius: 50%;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        .cert-teal {
+            background: linear-gradient(135deg, #14b8a6, #2dd4bf);
+        }
+
+        .cert-purple {
+            background: linear-gradient(135deg, #8b5cf6, #a78bfa);
+        }
+
+        .certificate h3 {
+            margin: 3px 0;
+            font-size: 15px;
+        }
+
+        .certificate p {
+            margin: 0;
+            color: #64748b;
+            font-size: 13px;
+        }
+
+        /* ========================================
+           BLOG - CSS GRID
+        ======================================== */
+
+        .blogs-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: auto;
+            grid-template-areas: "blog1 blog2 blog3";
+            align-items: start;
+            grid-gap: 20px;
+        }
+
+        .blog-card {
+            min-height: 205px;
+            padding: 18px;
+            background-color: white;
+            border: 1px solid #dbe3ec;
+            border-radius: 11px;
+            box-shadow: 0 7px 18px rgba(15, 23, 42, 0.06);
+            transition: transform 0.25s, box-shadow 0.25s;
+        }
+
+        .blog-card:nth-child(1) {
+            grid-area: blog1;
+        }
+
+        .blog-card:nth-child(2) {
+            grid-area: blog2;
+        }
+
+        .blog-card:nth-child(3) {
+            grid-area: blog3;
+        }
+
+        .blog-card:hover {
+            box-shadow: 0 12px 25px rgba(15, 23, 42, 0.11);
+        }
+
+        .blog-number {
+            display: inline-block;
+            padding: 4px 9px;
+            margin-bottom: 8px;
+            background: linear-gradient(135deg, #2563eb, #14b8a6);
+            color: white;
+            border-radius: 12px;
+            font-size: 10px;
+            font-weight: bold;
+        }
+
+        .blog-card h3 {
+            margin: 0 0 8px;
+            font-size: 16px;
+        }
+
+        .blog-card p {
+            color: #64748b;
+        }
+
+        .blog-details {
+            margin-top: 15px;
+        }
+
+        .blog-details summary {
+            display: inline-block;
+            color: #2563eb;
+            font-weight: bold;
+            cursor: pointer;
+            font-size: 13px;
+            list-style: none;
+        }
+
+        .blog-details summary::-webkit-details-marker {
+            display: none;
+        }
+
+        .blog-details summary:hover {
+            color: #14b8a6;
+        }
+
+        .blog-details[open] summary {
+            margin-bottom: 14px;
+            color: #0d9488;
+        }
+
+        .blog-full {
+            margin-top: 5px;
+            padding-top: 13px;
+            border-top: 1px solid #e2e8f0;
+        }
+
+        .blog-full h4 {
+            margin: 12px 0 5px;
+            font-size: 14px;
+        }
+
+        .blog-full p {
+            margin: 0 0 10px;
+            font-size: 13px;
+            line-height: 1.6;
+        }
+
+        /* ========================================
+           CONTACT - CSS GRID
+        ======================================== */
+
+        .contact-section {
+            background:
+                radial-gradient(circle at 90% 20%, rgba(20, 184, 166, 0.10), transparent 220px),
+                linear-gradient(135deg, #eff6ff, #f0fdfa);
+        }
+
+        .contact-intro {
+            margin: -8px 0 17px;
+            color: #64748b;
+        }
+
+        form {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: auto auto;
+            grid-template-areas:
+                "formLeft formRight"
+                "submit submit";
+            grid-gap: 20px;
+
+            padding: 22px;
+            background-color: white;
+            border: 1px solid #dbe3ec;
+            border-radius: 12px;
+            box-shadow: 0 9px 22px rgba(15, 23, 42, 0.07);
+        }
+
+        .form-left {
+            grid-area: formLeft;
+        }
+
+        .form-right {
+            grid-area: formRight;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 6px;
+            font-weight: bold;
+            color: #334155;
+        }
+
+        input,
+        textarea {
+            display: block;
+            width: 100%;
+            margin-bottom: 14px;
+            padding: 10px 12px;
+            border: 1px solid #cbd5e1;
+            border-radius: 7px;
+            background-color: #f8fafc;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        input:focus,
+        textarea:focus {
+            outline: none;
+            border-color: #2563eb;
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.08);
+            background-color: white;
+        }
+
+        input {
+            height: 40px;
+        }
+
+        textarea {
+            height: 82px;
+            resize: none;
+        }
+
+        button {
+            grid-area: submit;
+            justify-self: start;
+
+            padding: 11px 27px;
+            background: linear-gradient(135deg, #2563eb, #14b8a6);
+            color: white;
+            border: none;
+            border-radius: 7px;
+            font-size: 13px;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 0 6px 15px rgba(37, 99, 235, 0.22);
+            transition: transform 0.25s, box-shadow 0.25s;
+        }
+
+        button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 9px 20px rgba(37, 99, 235, 0.28);
+        }
+
+        /* ========================================
+           FOOTER - CSS GRID
+        ======================================== */
+
+        footer {
+            padding: 18px 0;
+            background: linear-gradient(135deg, #0f172a, #172554);
+            color: white;
+        }
+
+        footer .container {
+            display: grid;
+            grid-template-columns: 1fr auto;
+            grid-template-rows: auto;
+            grid-template-areas: "copyright social";
+            align-items: center;
+            grid-gap: 20px;
+        }
+
+        footer p {
+            grid-area: copyright;
+            margin: 0;
+            font-size: 12px;
+        }
+
+        .social {
+            grid-area: social;
+
+            display: grid;
+            grid-auto-flow: column;
+            grid-auto-columns: max-content;
+            grid-gap: 17px;
+        }
+
+        .social a {
+            color: #dbeafe;
+            text-decoration: none;
+            font-size: 12px;
+            transition: color 0.25s, transform 0.25s;
+        }
+
+        .social a:hover {
+            color: #2dd4bf;
+            transform: translateY(-2px);
+        }
+
+        /* ========================================
+           SIMPLE RESPONSIVE ADJUSTMENT
+        ======================================== */
+
+        @media (max-width: 1200px) {
+            .container {
+                width: calc(100% - 40px);
+            }
+
+            header .container {
+                grid-template-columns: 240px 1fr;
+            }
+
+            nav {
+                grid-gap: 10px;
+            }
+
+            nav a {
+                font-size: 12px;
+            }
+        }
+
+        @media (max-width: 850px) {
+            body {
+                padding-top: 0;
+            }
+
+            header {
+                position: static;
+                height: auto;
+            }
+
+            header .container {
+                height: auto;
+                padding: 15px 0;
+                grid-template-columns: 1fr;
+                grid-template-rows: auto auto;
+                grid-template-areas:
+                    "brand"
+                    "menu";
+            }
+
+            nav {
+                grid-auto-flow: row;
+                justify-content: start;
+            }
+
+            .hero .container,
+            .about-grid,
+            form {
+                grid-template-columns: 1fr;
+            }
+
+            .hero .container {
+                grid-template-areas:
+                    "heroText"
+                    "heroImage";
+            }
+
+            .about-grid {
+                grid-template-areas:
+                    "aboutImage"
+                    "aboutText";
+            }
+
+            .skills-grid,
+            .projects-grid,
+            .certifications-grid,
+            .blogs-grid {
+                grid-template-columns: 1fr;
+                grid-template-rows: auto;
+                grid-template-areas: none;
+            }
+
+            .skill-blue,
+            .skill-teal,
+            .skill-purple,
+            .skill-orange,
+            .project-card:nth-child(1),
+            .project-card:nth-child(2),
+            .project-card:nth-child(3),
+            .certificate:nth-child(1),
+            .certificate:nth-child(2),
+            .certificate:nth-child(3),
+            .blog-card:nth-child(1),
+            .blog-card:nth-child(2),
+            .blog-card:nth-child(3) {
+                grid-area: auto;
+            }
+
+            .experience-box {
+                grid-template-columns: 55px 1fr;
+                grid-template-areas:
+                    "expIcon expContent"
+                    ". expDate";
+            }
+
+            .date {
+                justify-self: start;
+            }
+
+            form {
+                grid-template-areas:
+                    "formLeft"
+                    "formRight"
+                    "submit";
+            }
+
+            footer .container {
+                grid-template-columns: 1fr;
+                grid-template-areas:
+                    "copyright"
+                    "social";
+            }
+
+            .social {
+                justify-content: start;
+            }
+        }
+    </style>
+</head>
 
 <body>
 
+    <!-- ========================================
+         HEADER
+    ======================================== -->
 
-<!-- ========================================
-     HEADER
-======================================== -->
+    <header>
+        <div class="container">
 
-<header>
+            <div class="brand">
+                <span class="logo">SJ</span>
+                <span class="name">Sidhartha Javvadi</span>
+            </div>
 
-    <div class="container clearfix">
+            <nav>
+                <a href="#about">About</a>
+                <a href="#education">Education</a>
+                <a href="#skills">Skills</a>
+                <a href="#experience">Experience</a>
+                <a href="#projects">Projects</a>
+                <a href="#certifications">Certifications</a>
+                <a href="#blog">Blog</a>
+                <a href="#contact">Contact</a>
 
-        <div class="brand">
-
-            <span class="logo">
-                SJ
-            </span>
-
-            <span class="name">
-                Sidhartha Javvadi
-            </span>
+                <a href="resume.pdf" class="resume" target="_blank">
+                    Resume
+                </a>
+            </nav>
 
         </div>
+    </header>
 
 
-        <nav>
+    <main>
 
-            <a href="#about">
-                About
-            </a>
+        <!-- ========================================
+             HERO
+        ======================================== -->
 
-            <a href="#education">
-                Education
-            </a>
+        <section class="hero">
+            <div class="container">
 
-            <a href="#skills">
-                Skills
-            </a>
+                <div class="hero-left">
 
-            <a href="#experience">
-                Experience
-            </a>
+                    <span class="intro-badge">
+                        Welcome to my portfolio
+                    </span>
 
-            <a href="#projects">
-                Projects
-            </a>
+                    <h1>
+                        Hi, I'm Sidhartha Javvadi
+                    </h1>
 
-            <a href="#certifications">
-                Certifications
-            </a>
-
-            <a href="#blog">
-                Blog
-            </a>
-
-            <a href="#contact">
-                Contact
-            </a>
-
-            <!-- RESUME PDF -->
-
-            <a
-                href="JAVVADI SIDHARTHA RESUME UPDATED.pdf"
-                class="resume"
-                target="_blank"
-            >
-                Resume
-            </a>
-
-        </nav>
-
-    </div>
-
-</header>
-
-
-
-<!-- ========================================
-     MAIN CONTENT
-======================================== -->
-
-<main>
-
-
-<!-- ========================================
-     HERO
-======================================== -->
-
-<section class="hero">
-
-    <div class="container clearfix">
-
-
-        <div class="hero-left">
-
-            <span class="intro-badge">
-                Welcome to my portfolio
-            </span>
-
-
-            <h1>
-                Hi, I'm Sidhartha Javvadi
-            </h1>
-
-
-            <h2>
-                Computer Science Graduate Student |
-                Web Developer
-            </h2>
-
-
-            <p>
-                Passionate about building web applications,
-                working with data, cloud technologies, and
-                solving real-world problems through technology.
-            </p>
-
-
-            <a
-                href="#projects"
-                class="button blue-button"
-            >
-                View Projects
-            </a>
-
-
-            <a
-                href="#contact"
-                class="button white-button"
-            >
-                Contact Me
-            </a>
-
-        </div>
-
-
-
-        <!-- PROFILE IMAGE -->
-
-        <div class="hero-image">
-
-            <img
-                src="Profile picture.png"
-                alt="Sidhartha Javvadi Profile Picture"
-                class="profile-photo"
-            >
-
-        </div>
-
-
-    </div>
-
-</section>
-
-
-
-<!-- ========================================
-     ABOUT
-======================================== -->
-
-<section
-    id="about"
-    class="section"
->
-
-    <div class="container">
-
-
-        <h2 class="section-title">
-            About Me
-        </h2>
-
-
-        <div class="clearfix">
-
-
-            <div class="about-image">
-
-                <img
-                    src="About_me picture.png"
-                    alt="Sidhartha Javvadi working on a laptop"
-                    class="about-photo"
-                >
-
-            </div>
-
-
-
-            <div class="about-text">
-
-
-                <h3>
-                    Building practical solutions through technology
-                </h3>
-
-
-                <p>
-                    I am a Computer Science graduate student interested
-                    in web development, cloud computing, databases,
-                    and modern software technologies.
-                </p>
-
-
-                <p>
-                    I enjoy creating practical applications,
-                    learning new technologies, and solving
-                    real-world problems through programming.
-                </p>
-
-
-                <span class="about-tag">
-                    Web Development
-                </span>
-
-                <span class="about-tag">
-                    Cloud
-                </span>
-
-                <span class="about-tag">
-                    Databases
-                </span>
-
-
-            </div>
-
-
-        </div>
-
-    </div>
-
-</section>
-
-
-
-<!-- ========================================
-     SKILLS
-======================================== -->
-
-<section
-    id="skills"
-    class="section light-section"
->
-
-    <div class="container">
-
-
-        <h2 class="section-title">
-            Technical Skills
-        </h2>
-
-
-
-        <div class="skill-card skill-blue first-card">
-
-            <div class="skill-icon">
-                ☁
-            </div>
-
-            <h3>
-                Cloud
-            </h3>
-
-            <p>
-                AWS
-                <br>
-                Azure
-                <br>
-                Google Cloud
-            </p>
-
-        </div>
-
-
-
-        <div class="skill-card skill-teal">
-
-            <div class="skill-icon">
-                &lt;/&gt;
-            </div>
-
-            <h3>
-                Programming
-            </h3>
-
-            <p>
-                Python
-                <br>
-                Java
-                <br>
-                HTML / CSS
-            </p>
-
-        </div>
-
-
-
-        <div class="skill-card skill-purple">
-
-            <div class="skill-icon">
-                ◉
-            </div>
-
-            <h3>
-                Database
-            </h3>
-
-            <p>
-                MySQL
-                <br>
-                SQL
-                <br>
-                MongoDB
-            </p>
-
-        </div>
-
-
-
-        <div class="skill-card skill-orange">
-
-            <div class="skill-icon">
-                ⚙
-            </div>
-
-            <h3>
-                Tools
-            </h3>
-
-            <p>
-                Git
-                <br>
-                Docker
-                <br>
-                VS Code
-            </p>
-
-        </div>
-
-
-        <div class="clear"></div>
-
-
-    </div>
-
-</section>
-
-
-
-<!-- ========================================
-     EXPERIENCE
-======================================== -->
-
-<section
-    id="experience"
-    class="section"
->
-
-    <div class="container">
-
-
-        <h2 class="section-title">
-            Experience
-        </h2>
-
-
-        <article class="experience-box">
-
-
-            <div class="experience-icon">
-                W
-            </div>
-
-
-            <div class="experience-content">
-
-
-                <h3>
-                    WordPress Developer Intern
-                </h3>
-
-
-                <p class="company">
-                    Qressy Solutions
-                </p>
-
-
-                <ul>
-
-                    <li>
-                        Developed and maintained WordPress websites.
-                    </li>
-
-                    <li>
-                        Customized website layouts and themes.
-                    </li>
-
-                    <li>
-                        Worked with HTML, CSS, and WordPress plugins.
-                    </li>
-
-                    <li>
-                        Assisted with improving website usability.
-                    </li>
-
-                </ul>
-
-
-            </div>
-
-
-            <p class="date">
-                Jun 2023 - Aug 2023
-            </p>
-
-
-        </article>
-
-
-    </div>
-
-</section>
-
-
-
-<!-- ========================================
-     PROJECTS
-======================================== -->
-
-<section
-    id="projects"
-    class="section projects-section"
->
-
-    <div class="container">
-
-
-        <h2 class="section-title">
-            Projects
-        </h2>
-
-
-
-        <!-- PROJECT 1 -->
-
-        <article class="project-card first-project">
-
-
-            <div class="project-image project-one">
-                ML
-            </div>
-
-
-            <h3>
-                Urban Sprawl Monitoring
-            </h3>
-
-
-            <p>
-                Machine learning project used to analyze
-                urban growth using satellite imagery.
-            </p>
-
-
-            <span class="tag">
-                Python
-            </span>
-
-            <span class="tag">
-                ML
-            </span>
-
-            <span class="tag">
-                OpenCV
-            </span>
-
-
-            <a
-                href="https://github.com/Javvadisidhartha9100"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="project-link"
-            >
-                View Project →
-            </a>
-
-
-        </article>
-
-
-
-        <!-- PROJECT 2 -->
-
-        <article class="project-card">
-
-
-            <div class="project-image project-two">
-                ☁
-            </div>
-
-
-            <h3>
-                Green Cloud Computing
-            </h3>
-
-
-            <p>
-                Simulation project focused on efficient
-                load balancing and cloud resource usage.
-            </p>
-
-
-            <span class="tag">
-                Cloud
-            </span>
-
-            <span class="tag">
-                Python
-            </span>
-
-
-            <a
-                href="https://github.com/Javvadisidhartha9100"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="project-link"
-            >
-                View Project →
-            </a>
-
-
-        </article>
-
-
-
-        <!-- PROJECT 3 -->
-
-        <article class="project-card">
-
-
-            <div class="project-image project-three">
-                &lt;/&gt;
-            </div>
-
-
-            <h3>
-                Portfolio Website
-            </h3>
-
-
-            <p>
-                Personal portfolio website created using
-                HTML and CSS with a modern desktop layout.
-            </p>
-
-
-            <span class="tag">
-                HTML
-            </span>
-
-            <span class="tag">
-                CSS
-            </span>
-
-
-            <a
-                href="https://github.com/Javvadisidhartha9100"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="project-link"
-            >
-                View Project →
-            </a>
-
-
-        </article>
-
-
-        <div class="clear"></div>
-
-
-    </div>
-
-</section>
-
-
-
-<!-- ========================================
-     EDUCATION
-======================================== -->
-
-<section
-    id="education"
-    class="section"
->
-
-    <div class="container">
-
-
-        <h2 class="section-title">
-            Education
-        </h2>
-
-
-        <article class="education-box">
-
-
-            <div class="education-icon">
-                🎓
-            </div>
-
-
-            <div class="education-content">
-
-
-                <h3>
-                    Master of Science in Computer Science
-                </h3>
-
-
-                <p>
-                    University of New Haven
-                </p>
-
-
-                <p>
-                    New Haven, Connecticut
-                </p>
-
-
-                <p>
-                    Relevant coursework includes Cloud Computing,
-                    Web Development, Databases, and Programming.
-                </p>
-
-
-            </div>
-
-
-        </article>
-
-
-    </div>
-
-</section>
-
-
-
-<!-- ========================================
-     CERTIFICATIONS
-======================================== -->
-
-<section
-    id="certifications"
-    class="section light-section"
->
-
-    <div class="container">
-
-
-        <h2 class="section-title">
-            Certifications
-        </h2>
-
-
-
-        <div class="certificate first-certificate">
-
-
-            <div class="certificate-icon">
-                AWS
-            </div>
-
-
-            <h3>
-                AWS
-            </h3>
-
-
-            <p>
-                Cloud Practitioner
-            </p>
-
-
-        </div>
-
-
-
-        <div class="certificate">
-
-
-            <div class="certificate-icon cert-teal">
-                G
-            </div>
-
-
-            <h3>
-                Google
-            </h3>
-
-
-            <p>
-                Looker Studio
-            </p>
-
-
-        </div>
-
-
-
-        <div class="certificate">
-
-
-            <div class="certificate-icon cert-purple">
-                T
-            </div>
-
-
-            <h3>
-                Tableau
-            </h3>
-
-
-            <p>
-                Data Visualization
-            </p>
-
-
-        </div>
-
-
-        <div class="clear"></div>
-
-
-    </div>
-
-</section>
-
-
-
-<!-- ========================================
-     BLOG
-======================================== -->
-
-<section
-    id="blog"
-    class="section"
->
-
-    <div class="container">
-
-
-        <h2 class="section-title">
-            Blog
-        </h2>
-
-
-
-        <!-- BLOG 1 -->
-
-        <article class="blog-card first-blog">
-
-
-            <span class="blog-number">
-                01
-            </span>
-
-
-            <h3>
-                Getting Started with Cloud Computing
-            </h3>
-
-
-            <p>
-                An introduction to cloud platforms
-                and cloud-based development.
-            </p>
-
-
-            <details class="blog-details">
-
-                <summary>
-                    Read More →
-                </summary>
-
-
-                <div class="blog-full">
-
-                    <h4>
-                        What is Cloud Computing?
-                    </h4>
+                    <h2>
+                        Computer Science Graduate Student | Web Developer
+                    </h2>
 
                     <p>
-                        Cloud computing allows users and organizations
-                        to access computing resources such as servers,
-                        databases, applications, networking, and storage
-                        through the internet.
+                        Passionate about building web applications,
+                        working with data, cloud technologies, and
+                        solving real-world problems through technology.
                     </p>
 
+                    <a href="#projects" class="button blue-button">
+                        View Projects
+                    </a>
 
-                    <h4>
-                        Why is Cloud Computing Important?
-                    </h4>
-
-                    <p>
-                        Cloud platforms allow organizations to scale
-                        computing resources according to their needs
-                        without maintaining large amounts of physical
-                        infrastructure.
-                    </p>
-
-
-                    <h4>
-                        Popular Cloud Platforms
-                    </h4>
-
-                    <p>
-                        Amazon Web Services, Microsoft Azure, and
-                        Google Cloud are some of the most commonly
-                        used cloud platforms.
-                    </p>
-
-
-                    <h4>
-                        My Interest
-                    </h4>
-
-                    <p>
-                        I am interested in learning cloud architecture,
-                        infrastructure, deployment, virtualization,
-                        and scalable cloud solutions.
-                    </p>
+                    <a href="#contact" class="button white-button">
+                        Contact Me
+                    </a>
 
                 </div>
 
-            </details>
+                <div class="hero-image">
+                    <img
+                        src="profile.png"
+                        alt="Sidhartha Javvadi Profile Picture"
+                        class="profile-photo"
+                    >
+                </div>
+
+            </div>
+        </section>
 
 
-        </article>
+        <!-- ========================================
+             ABOUT
+        ======================================== -->
 
+        <section id="about" class="section">
+            <div class="container">
 
+                <h2 class="section-title">
+                    About Me
+                </h2>
 
-        <!-- BLOG 2 -->
+                <div class="about-grid">
 
-        <article class="blog-card">
+                    <div class="about-image">
+                        <img
+                            src="about.png"
+                            alt="Sidhartha Javvadi working on a laptop"
+                            class="about-photo"
+                        >
+                    </div>
 
+                    <div class="about-text">
 
-            <span class="blog-number">
-                02
-            </span>
+                        <h3>
+                            Building practical solutions through technology
+                        </h3>
 
+                        <p>
+                            I am a Computer Science graduate student interested
+                            in web development, cloud computing, databases,
+                            and modern software technologies.
+                        </p>
 
-            <h3>
-                My Web Development Journey
-            </h3>
+                        <p>
+                            I enjoy creating practical applications,
+                            learning new technologies, and solving
+                            real-world problems through programming.
+                        </p>
 
+                        <span class="about-tag">
+                            Web Development
+                        </span>
 
-            <p>
-                Lessons learned while building websites
-                using HTML, CSS, and WordPress.
-            </p>
+                        <span class="about-tag">
+                            Cloud
+                        </span>
 
+                        <span class="about-tag">
+                            Databases
+                        </span>
 
-            <details class="blog-details">
-
-                <summary>
-                    Read More →
-                </summary>
-
-
-                <div class="blog-full">
-
-                    <h4>
-                        Learning Web Development
-                    </h4>
-
-
-                    <p>
-                        My web development journey started with
-                        understanding how websites are structured
-                        using HTML and styled using CSS.
-                    </p>
-
-
-                    <h4>
-                        Working with WordPress
-                    </h4>
-
-
-                    <p>
-                        During my WordPress internship, I worked
-                        with themes, layouts, plugins, website
-                        content, and basic troubleshooting.
-                    </p>
-
-
-                    <h4>
-                        Building this Portfolio
-                    </h4>
-
-
-                    <p>
-                        Creating this portfolio helped me improve
-                        my understanding of semantic HTML,
-                        navigation, CSS positioning, website
-                        design, and static website hosting.
-                    </p>
-
-
-                    <h4>
-                        Future Goals
-                    </h4>
-
-
-                    <p>
-                        I plan to continue developing my skills
-                        by building web applications and learning
-                        additional technologies used in modern
-                        software development.
-                    </p>
+                    </div>
 
                 </div>
 
-            </details>
+            </div>
+        </section>
 
 
-        </article>
+        <!-- ========================================
+             SKILLS
+        ======================================== -->
+
+        <section id="skills" class="section light-section">
+            <div class="container">
+
+                <h2 class="section-title">
+                    Technical Skills
+                </h2>
+
+                <div class="skills-grid">
+
+                    <div class="skill-card skill-blue">
+
+                        <div class="skill-icon">
+                            ☁
+                        </div>
+
+                        <h3>
+                            Cloud
+                        </h3>
+
+                        <p>
+                            AWS
+                            <br>
+                            Azure
+                            <br>
+                            Google Cloud
+                        </p>
+
+                    </div>
 
 
+                    <div class="skill-card skill-teal">
 
-        <!-- BLOG 3 -->
+                        <div class="skill-icon">
+                            &lt;/&gt;
+                        </div>
 
-        <article class="blog-card">
+                        <h3>
+                            Programming
+                        </h3>
 
+                        <p>
+                            Python
+                            <br>
+                            Java
+                            <br>
+                            HTML / CSS
+                        </p>
 
-            <span class="blog-number">
-                03
-            </span>
-
-
-            <h3>
-                Tips for Computer Science Students
-            </h3>
-
-
-            <p>
-                Useful suggestions for learning programming
-                and building technical projects.
-            </p>
-
-
-            <details class="blog-details">
-
-                <summary>
-                    Read More →
-                </summary>
+                    </div>
 
 
-                <div class="blog-full">
+                    <div class="skill-card skill-purple">
+
+                        <div class="skill-icon">
+                            ◉
+                        </div>
+
+                        <h3>
+                            Database
+                        </h3>
+
+                        <p>
+                            MySQL
+                            <br>
+                            SQL
+                            <br>
+                            MongoDB
+                        </p>
+
+                    </div>
 
 
-                    <h4>
-                        Practice Programming
-                    </h4>
+                    <div class="skill-card skill-orange">
 
+                        <div class="skill-icon">
+                            ⚙
+                        </div>
 
-                    <p>
-                        Programming skills improve through practice.
-                        Start with smaller problems and gradually
-                        work on larger applications.
-                    </p>
+                        <h3>
+                            Tools
+                        </h3>
 
+                        <p>
+                            Git
+                            <br>
+                            Docker
+                            <br>
+                            VS Code
+                        </p>
 
-                    <h4>
-                        Build Projects
-                    </h4>
-
-
-                    <p>
-                        Projects allow students to apply concepts
-                        learned in class and create practical
-                        examples of their technical skills.
-                    </p>
-
-
-                    <h4>
-                        Learn GitHub
-                    </h4>
-
-
-                    <p>
-                        GitHub is useful for storing code,
-                        tracking changes, documenting projects,
-                        and sharing technical work.
-                    </p>
-
-
-                    <h4>
-                        Continue Learning
-                    </h4>
-
-
-                    <p>
-                        Technology continues to change, so students
-                        should develop the habit of learning new
-                        tools, languages, and concepts throughout
-                        their careers.
-                    </p>
-
+                    </div>
 
                 </div>
 
-            </details>
+            </div>
+        </section>
 
 
-        </article>
+        <!-- ========================================
+             EXPERIENCE
+        ======================================== -->
 
+        <section id="experience" class="section">
+            <div class="container">
 
-        <div class="clear"></div>
+                <h2 class="section-title">
+                    Experience
+                </h2>
 
+                <article class="experience-box">
 
-    </div>
+                    <div class="experience-icon">
+                        W
+                    </div>
 
-</section>
+                    <div class="experience-content">
 
+                        <h3>
+                            WordPress Developer Intern
+                        </h3>
 
+                        <p class="company">
+                            Qressy Solutions
+                        </p>
 
-<!-- ========================================
-     CONTACT
-======================================== -->
+                        <ul>
+                            <li>
+                                Developed and maintained WordPress websites.
+                            </li>
 
-<section
-    id="contact"
-    class="section contact-section"
->
+                            <li>
+                                Customized website layouts and themes.
+                            </li>
 
-    <div class="container">
+                            <li>
+                                Worked with HTML, CSS, and WordPress plugins.
+                            </li>
 
+                            <li>
+                                Assisted with improving website usability.
+                            </li>
+                        </ul>
 
-        <h2 class="section-title">
-            Contact Me
-        </h2>
+                    </div>
 
+                    <p class="date">
+                        Jun 2023 - Aug 2023
+                    </p>
 
-        <p class="contact-intro">
-            Have a question or want to connect?
-            Feel free to send me a message.
-        </p>
-
-
-
-        <!--
-        Static website contact form.
-        FormSubmit handles the email delivery.
-        -->
-
-        <form
-            action="https://formsubmit.co/javvadisidhartha9100@gmail.com"
-            method="POST"
-        >
-
-
-            <input
-                type="hidden"
-                name="_subject"
-                value="New Message From Sidhartha Portfolio Website"
-            >
-
-
-            <input
-                type="hidden"
-                name="_template"
-                value="table"
-            >
-
-
-            <input
-                type="hidden"
-                name="_captcha"
-                value="false"
-            >
-
-
-
-            <div class="form-left">
-
-
-                <label for="name">
-                    Name
-                </label>
-
-
-                <input
-                    type="text"
-                    id="name"
-                    name="name"
-                    placeholder="Your Name"
-                    required
-                >
-
-
-
-                <label for="subject">
-                    Subject
-                </label>
-
-
-                <input
-                    type="text"
-                    id="subject"
-                    name="subject"
-                    placeholder="Subject"
-                    required
-                >
-
+                </article>
 
             </div>
+        </section>
 
 
+        <!-- ========================================
+             PROJECTS
+        ======================================== -->
 
-            <div class="form-right">
+        <section id="projects" class="section projects-section">
+            <div class="container">
+
+                <h2 class="section-title">
+                    Projects
+                </h2>
+
+                <div class="projects-grid">
+
+                    <article class="project-card">
+
+                        <div class="project-image project-one">
+                            ML
+                        </div>
+
+                        <h3>
+                            Urban Sprawl Monitoring
+                        </h3>
+
+                        <p>
+                            Machine learning project used to analyze
+                            urban growth using satellite imagery.
+                        </p>
+
+                        <span class="tag">
+                            Python
+                        </span>
+
+                        <span class="tag">
+                            ML
+                        </span>
+
+                        <span class="tag">
+                            OpenCV
+                        </span>
+
+                        <a
+                            href="https://github.com/Javvadisidhartha9100"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="project-link"
+                        >
+                            View Project →
+                        </a>
+
+                    </article>
 
 
-                <label for="email">
-                    Email
-                </label>
+                    <article class="project-card">
+
+                        <div class="project-image project-two">
+                            ☁
+                        </div>
+
+                        <h3>
+                            Green Cloud Computing
+                        </h3>
+
+                        <p>
+                            Simulation project focused on efficient
+                            load balancing and cloud resource usage.
+                        </p>
+
+                        <span class="tag">
+                            Cloud
+                        </span>
+
+                        <span class="tag">
+                            Python
+                        </span>
+
+                        <a
+                            href="https://github.com/Javvadisidhartha9100"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="project-link"
+                        >
+                            View Project →
+                        </a>
+
+                    </article>
 
 
-                <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    placeholder="example@email.com"
-                    required
-                >
+                    <article class="project-card">
 
+                        <div class="project-image project-three">
+                            &lt;/&gt;
+                        </div>
 
+                        <h3>
+                            Portfolio Website
+                        </h3>
 
-                <label for="message">
-                    Message
-                </label>
+                        <p>
+                            Personal portfolio website created using
+                            HTML and CSS with a modern desktop layout.
+                        </p>
 
+                        <span class="tag">
+                            HTML
+                        </span>
 
-                <textarea
-                    id="message"
-                    name="message"
-                    placeholder="Write your message"
-                    required
-                ></textarea>
+                        <span class="tag">
+                            CSS
+                        </span>
 
+                        <a
+                            href="https://github.com/Javvadisidhartha9100"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="project-link"
+                        >
+                            View Project →
+                        </a>
+
+                    </article>
+
+                </div>
 
             </div>
+        </section>
 
 
-            <div class="clear"></div>
+        <!-- ========================================
+             EDUCATION
+        ======================================== -->
+
+        <section id="education" class="section">
+            <div class="container">
+
+                <h2 class="section-title">
+                    Education
+                </h2>
+
+                <article class="education-box">
+
+                    <div class="education-icon">
+                        🎓
+                    </div>
+
+                    <div class="education-content">
+
+                        <h3>
+                            Master of Science in Computer Science
+                        </h3>
+
+                        <p>
+                            University of New Haven
+                        </p>
+
+                        <p>
+                            New Haven, Connecticut
+                        </p>
+
+                        <p>
+                            Relevant coursework includes Cloud Computing,
+                            Web Development, Databases, and Programming.
+                        </p>
+
+                    </div>
+
+                </article>
+
+            </div>
+        </section>
 
 
-            <button type="submit">
-                Send Message
-            </button>
+        <!-- ========================================
+             CERTIFICATIONS
+        ======================================== -->
+
+        <section id="certifications" class="section light-section">
+            <div class="container">
+
+                <h2 class="section-title">
+                    Certifications
+                </h2>
+
+                <div class="certifications-grid">
+
+                    <div class="certificate">
+
+                        <div class="certificate-icon">
+                            AWS
+                        </div>
+
+                        <h3>
+                            AWS
+                        </h3>
+
+                        <p>
+                            Cloud Practitioner
+                        </p>
+
+                    </div>
 
 
-        </form>
+                    <div class="certificate">
+
+                        <div class="certificate-icon cert-teal">
+                            G
+                        </div>
+
+                        <h3>
+                            Google
+                        </h3>
+
+                        <p>
+                            Looker Studio
+                        </p>
+
+                    </div>
 
 
-    </div>
+                    <div class="certificate">
 
-</section>
+                        <div class="certificate-icon cert-purple">
+                            T
+                        </div>
 
+                        <h3>
+                            Tableau
+                        </h3>
 
-</main>
+                        <p>
+                            Data Visualization
+                        </p>
 
+                    </div>
 
+                </div>
 
-<!-- ========================================
-     FOOTER
-======================================== -->
-
-<footer>
-
-    <div class="container clearfix">
-
-
-        <p>
-            © 2026 Sidhartha Javvadi.
-            All Rights Reserved.
-        </p>
+            </div>
+        </section>
 
 
+        <!-- ========================================
+             BLOG
+        ======================================== -->
 
-        <div class="social">
+        <section id="blog" class="section">
+            <div class="container">
+
+                <h2 class="section-title">
+                    Blog
+                </h2>
+
+                <div class="blogs-grid">
+
+                    <article class="blog-card">
+
+                        <span class="blog-number">
+                            01
+                        </span>
+
+                        <h3>
+                            Getting Started with Cloud Computing
+                        </h3>
+
+                        <p>
+                            An introduction to cloud platforms
+                            and cloud-based development.
+                        </p>
+
+                        <details class="blog-details">
+
+                            <summary>
+                                Read More →
+                            </summary>
+
+                            <div class="blog-full">
+
+                                <h4>
+                                    What is Cloud Computing?
+                                </h4>
+
+                                <p>
+                                    Cloud computing allows users and organizations
+                                    to access computing resources such as servers,
+                                    databases, applications, networking, and storage
+                                    through the internet.
+                                </p>
+
+                                <h4>
+                                    Why is Cloud Computing Important?
+                                </h4>
+
+                                <p>
+                                    Cloud platforms allow organizations to scale
+                                    computing resources according to their needs
+                                    without maintaining large amounts of physical
+                                    infrastructure.
+                                </p>
+
+                                <h4>
+                                    Popular Cloud Platforms
+                                </h4>
+
+                                <p>
+                                    Amazon Web Services, Microsoft Azure, and
+                                    Google Cloud are some of the most commonly
+                                    used cloud platforms.
+                                </p>
+
+                                <h4>
+                                    My Interest
+                                </h4>
+
+                                <p>
+                                    I am interested in learning cloud architecture,
+                                    infrastructure, deployment, virtualization,
+                                    and scalable cloud solutions.
+                                </p>
+
+                            </div>
+
+                        </details>
+
+                    </article>
 
 
-            <a
-                href="https://www.linkedin.com/in/sidhartha-j-338549166/"
-                target="_blank"
-                rel="noopener noreferrer"
-            >
-                LinkedIn
-            </a>
+                    <article class="blog-card">
+
+                        <span class="blog-number">
+                            02
+                        </span>
+
+                        <h3>
+                            My Web Development Journey
+                        </h3>
+
+                        <p>
+                            Lessons learned while building websites
+                            using HTML, CSS, and WordPress.
+                        </p>
+
+                        <details class="blog-details">
+
+                            <summary>
+                                Read More →
+                            </summary>
+
+                            <div class="blog-full">
+
+                                <h4>
+                                    Learning Web Development
+                                </h4>
+
+                                <p>
+                                    My web development journey started with
+                                    understanding how websites are structured
+                                    using HTML and styled using CSS.
+                                </p>
+
+                                <h4>
+                                    Working with WordPress
+                                </h4>
+
+                                <p>
+                                    During my WordPress internship, I worked
+                                    with themes, layouts, plugins, website
+                                    content, and basic troubleshooting.
+                                </p>
+
+                                <h4>
+                                    Building this Portfolio
+                                </h4>
+
+                                <p>
+                                    Creating this portfolio helped me improve
+                                    my understanding of semantic HTML,
+                                    navigation, CSS positioning, website
+                                    design, and static website hosting.
+                                </p>
+
+                                <h4>
+                                    Future Goals
+                                </h4>
+
+                                <p>
+                                    I plan to continue developing my skills
+                                    by building web applications and learning
+                                    additional technologies used in modern
+                                    software development.
+                                </p>
+
+                            </div>
+
+                        </details>
+
+                    </article>
 
 
-            <a
-                href="https://github.com/Javvadisidhartha9100"
-                target="_blank"
-                rel="noopener noreferrer"
-            >
-                GitHub
-            </a>
+                    <article class="blog-card">
+
+                        <span class="blog-number">
+                            03
+                        </span>
+
+                        <h3>
+                            Tips for Computer Science Students
+                        </h3>
+
+                        <p>
+                            Useful suggestions for learning programming
+                            and building technical projects.
+                        </p>
+
+                        <details class="blog-details">
+
+                            <summary>
+                                Read More →
+                            </summary>
+
+                            <div class="blog-full">
+
+                                <h4>
+                                    Practice Programming
+                                </h4>
+
+                                <p>
+                                    Programming skills improve through practice.
+                                    Start with smaller problems and gradually
+                                    work on larger applications.
+                                </p>
+
+                                <h4>
+                                    Build Projects
+                                </h4>
+
+                                <p>
+                                    Projects allow students to apply concepts
+                                    learned in class and create practical
+                                    examples of their technical skills.
+                                </p>
+
+                                <h4>
+                                    Learn GitHub
+                                </h4>
+
+                                <p>
+                                    GitHub is useful for storing code,
+                                    tracking changes, documenting projects,
+                                    and sharing technical work.
+                                </p>
+
+                                <h4>
+                                    Continue Learning
+                                </h4>
+
+                                <p>
+                                    Technology continues to change, so students
+                                    should develop the habit of learning new
+                                    tools, languages, and concepts throughout
+                                    their careers.
+                                </p>
+
+                            </div>
+
+                        </details>
+
+                    </article>
+
+                </div>
+
+            </div>
+        </section>
 
 
-            <a
-                href="https://wa.me/14753741232"
-                target="_blank"
-                rel="noopener noreferrer"
-            >
-                WhatsApp
-            </a>
+        <!-- ========================================
+             CONTACT
+        ======================================== -->
 
+        <section id="contact" class="section contact-section">
+            <div class="container">
+
+                <h2 class="section-title">
+                    Contact Me
+                </h2>
+
+                <p class="contact-intro">
+                    Have a question or want to connect?
+                    Feel free to send me a message.
+                </p>
+
+                <form
+                    action="https://formsubmit.co/javvadisidhartha9100@gmail.com"
+                    method="POST"
+                >
+
+                    <input
+                        type="hidden"
+                        name="_subject"
+                        value="New Message From Sidhartha Portfolio Website"
+                    >
+
+                    <input
+                        type="hidden"
+                        name="_template"
+                        value="table"
+                    >
+
+                    <input
+                        type="hidden"
+                        name="_captcha"
+                        value="false"
+                    >
+
+                    <div class="form-left">
+
+                        <label for="name">
+                            Name
+                        </label>
+
+                        <input
+                            type="text"
+                            id="name"
+                            name="name"
+                            placeholder="Your Name"
+                            required
+                        >
+
+                        <label for="subject">
+                            Subject
+                        </label>
+
+                        <input
+                            type="text"
+                            id="subject"
+                            name="subject"
+                            placeholder="Subject"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="form-right">
+
+                        <label for="email">
+                            Email
+                        </label>
+
+                        <input
+                            type="email"
+                            id="email"
+                            name="email"
+                            placeholder="example@email.com"
+                            required
+                        >
+
+                        <label for="message">
+                            Message
+                        </label>
+
+                        <textarea
+                            id="message"
+                            name="message"
+                            placeholder="Write your message"
+                            required
+                        ></textarea>
+
+                    </div>
+
+                    <button type="submit">
+                        Send Message
+                    </button>
+
+                </form>
+
+            </div>
+        </section>
+
+    </main>
+
+
+    <!-- ========================================
+         FOOTER
+    ======================================== -->
+
+    <footer>
+        <div class="container">
+
+            <p>
+                © 2026 Sidhartha Javvadi. All Rights Reserved.
+            </p>
+
+            <div class="social">
+
+                <a
+                    href="https://www.linkedin.com/in/sidhartha-j-338549166/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    LinkedIn
+                </a>
+
+                <a
+                    href="https://github.com/Javvadisidhartha9100"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    GitHub
+                </a>
+
+                <a
+                    href="https://wa.me/14753741232"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    WhatsApp
+                </a>
+
+            </div>
 
         </div>
-
-
-    </div>
-
-</footer>
-
+    </footer>
 
 </body>
-
 </html>
