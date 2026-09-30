@@ -1169,6 +1169,211 @@
                 justify-content: start;
             }
         }
+
+
+        /* ========================================
+           ASSIGNMENT 3: MOBILE GRID (<= 500px)
+           Explicit breakpoint required by assignment
+        ======================================== */
+        @media (max-width: 500px) {
+            body {
+                padding-top: 68px;
+                font-size: 13px;
+            }
+
+            .container {
+                width: calc(100% - 28px);
+            }
+
+            header,
+            header .container {
+                height: 68px;
+            }
+
+            header .container {
+                grid-template-columns: minmax(0, 1fr) 42px;
+                grid-template-rows: 68px;
+                grid-template-areas: "brand toggle";
+                grid-gap: 10px;
+            }
+
+            .brand {
+                grid-template-columns: 38px minmax(0, 1fr);
+                grid-template-rows: 38px;
+                grid-template-areas: "logo name";
+                grid-gap: 8px;
+            }
+
+            .logo {
+                width: 38px;
+                height: 38px;
+                font-size: 14px;
+            }
+
+            .name {
+                font-size: 15px;
+            }
+
+            .menu-toggle {
+                width: 42px;
+                height: 42px;
+            }
+
+            nav {
+                top: 68px;
+            }
+
+            .hero {
+                padding: 32px 0;
+            }
+
+            .hero .container {
+                grid-template-columns: minmax(0, 1fr);
+                grid-template-rows: auto auto;
+                grid-template-areas:
+                    "heroText"
+                    "heroImage";
+                grid-gap: 28px;
+            }
+
+            .hero-left h1 {
+                font-size: 29px;
+                line-height: 1.15;
+            }
+
+            .hero-left h2 {
+                font-size: 16px;
+            }
+
+            .hero-left p {
+                max-width: 100%;
+            }
+
+            .hero-image {
+                width: 100%;
+                max-width: 360px;
+                justify-self: center;
+            }
+
+            .profile-photo {
+                height: 230px;
+            }
+
+            .button {
+                display: block;
+                width: 100%;
+                margin: 0 0 10px;
+                text-align: center;
+            }
+
+            .section {
+                padding: 30px 0;
+            }
+
+            .section-title {
+                font-size: 21px;
+            }
+
+            .about-grid {
+                grid-template-columns: minmax(0, 1fr);
+                grid-template-areas:
+                    "aboutImage"
+                    "aboutText";
+                grid-gap: 22px;
+            }
+
+            .about-text {
+                padding: 0;
+            }
+
+            .about-photo {
+                height: 190px;
+            }
+
+            .skills-grid,
+            .projects-grid,
+            .certifications-grid,
+            .blogs-grid {
+                grid-template-columns: minmax(0, 1fr);
+                grid-template-rows: auto;
+                grid-template-areas: none;
+                grid-gap: 16px;
+            }
+
+            .skill-card,
+            .project-card,
+            .certificate,
+            .blog-card {
+                min-height: auto;
+            }
+
+            .experience-box {
+                grid-template-columns: 44px minmax(0, 1fr);
+                grid-template-rows: auto auto;
+                grid-template-areas:
+                    "expIcon expContent"
+                    ". expDate";
+                grid-gap: 14px;
+                padding: 16px;
+            }
+
+            .experience-icon {
+                width: 42px;
+                height: 42px;
+                font-size: 18px;
+            }
+
+            .date {
+                justify-self: start;
+                margin-top: 6px;
+            }
+
+            .education-box {
+                grid-template-columns: 44px minmax(0, 1fr);
+                grid-template-areas: "eduIcon eduContent";
+                grid-gap: 14px;
+                padding: 16px;
+            }
+
+            .education-icon {
+                width: 42px;
+                height: 42px;
+                font-size: 20px;
+            }
+
+            form {
+                grid-template-columns: minmax(0, 1fr);
+                grid-template-rows: auto auto auto;
+                grid-template-areas:
+                    "formLeft"
+                    "formRight"
+                    "submit";
+                grid-gap: 6px;
+                padding: 18px;
+            }
+
+            button[type="submit"] {
+                width: 100%;
+                justify-self: stretch;
+            }
+
+            footer .container {
+                grid-template-columns: minmax(0, 1fr);
+                grid-template-areas:
+                    "copyright"
+                    "social";
+                justify-items: center;
+                text-align: center;
+            }
+
+            .social {
+                grid-auto-flow: column;
+                grid-auto-columns: max-content;
+                justify-content: center;
+                grid-gap: 14px;
+            }
+        }
+
     </style>
 </head>
 
